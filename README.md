@@ -18,6 +18,6 @@ Further details will be announced soon.
 
 3. Add naming and counting of detected fruits in real time;
 
-4. Adjust the code so that this program can connect to cameras, drones and other devices:
+4. Adjust the code so that this program can connect to cameras, drones and other devices;
 
 5. Too be announced...
