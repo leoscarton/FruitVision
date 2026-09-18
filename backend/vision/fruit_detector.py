@@ -30,7 +30,7 @@ class FruitCounter:
     def fruit_detected(self):
         return (self.count > 0)
 
-    def update_count(self, new_count):
+    def update_count(self, new_count:int):
         if new_count < 0:
             raise ValueError("Fruit count cannot be negative")
         else:
