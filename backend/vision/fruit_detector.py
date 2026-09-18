@@ -1,5 +1,5 @@
 import cv2
-from dataclasses import dataclass, field
+from dataclasses import dataclass, field, asdict
 from typing import List, Tuple
 
 @dataclass
@@ -34,3 +34,31 @@ class FruitCounter:
             raise ValueError(f"Screen coordinates cannot be negative")
         else:
             self.position_on_screen.append(fruit_pos)
+            
+
+class FruitCountManager:
+    def __init__(self):
+        self.fruit_counters = []
+        self.number_of_counters = 0
+
+    def find_fruit(self, fruit_name:str):
+        for fruit in self.fruit_counters:
+            if fruit.name == fruit_name:
+                return fruit
+
+        return None
+
+    def add_fruit(self, fruit_cnt:FruitCounter):
+        if self.find_fruit(fruit_cnt.name) is not None:
+            raise ValueError(f"Fruit {fruit_cnt.name} already present in list")
+            
+        self.fruit_counters.append(fruit_cnt)
+        self.number_of_counters += 1
+
+    def update_fruit_counter(self, fruit_name:str, new_count:int):
+        fruit = self.find_fruit(fruit_name)
+        fruit.update_count(new_count)
+
+    def send_dict(self) -> dict:
+        d = {fruit.name : asdict(fruit) for fruit in self.fruit_counters}
+        return d
