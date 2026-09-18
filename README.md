@@ -4,9 +4,13 @@ This is a WIP project designed to detect and correctly name and count fruits in 
 
 ## Architecture
 
-Backend: Python 3.14.7 (Subject to change)
+### Back-End
 
-Frontend: TypeScript 7.0.2 (Subject to change)
+Language: Python 3.14.7 (Subject to change)
+
+### Front-End
+
+Language: TypeScript 7.0.2 (Subject to change)
 
 Further details will be announced soon.
 
