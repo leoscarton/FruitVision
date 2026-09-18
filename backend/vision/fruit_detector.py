@@ -18,6 +18,15 @@ class FruitCounter:
         if self.count < 0:
             raise ValueError("Fruit count cannot be negative")
 
+    def __repr__(self):
+        pos_repr = f""
+        for id, p in enumerate(self.position_on_screen):
+            pos_repr += f"{id+1}: "
+            pos_repr += str(p)
+            pos_repr += "\n"    
+
+        return f"Name: {self.name}\nCount: {self.count}\nPositions on Screen:\n{pos_repr}"
+
     def fruit_detected(self):
         return (self.count > 0)
 
@@ -34,7 +43,7 @@ class FruitCounter:
             raise ValueError(f"Screen coordinates cannot be negative")
         else:
             self.position_on_screen.append(fruit_pos)
-            
+
 
 class FruitCountManager:
     def __init__(self):
