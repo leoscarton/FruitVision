@@ -39,9 +39,16 @@ class FruitCounter:
             self.count = new_count
 
     def add_fruit_position(self, fruit_pos:tuple):
+        if not isinstance(fruit_pos, tuple):
+            raise TypeError(f"Fruit coordinates must be a tuple, instead got {type(fruit_pos)}")
+        
         if len(fruit_pos) != 2:
             raise ValueError(f"Each tuple must have exactly 2 elements, {fruit_pos} has {len(fruit_pos)}")
-        elif fruit_pos[0] < 0.0 or fruit_pos[1] < 0.0:
+
+        if not ((isinstance(fruit_pos[0], float) or isinstance(fruit_pos[0], int)) and (isinstance(fruit_pos[1], float) or isinstance(fruit_pos[1], int))):
+            raise TypeError(f"Fruit position must be of type float or int, instead got ({type(fruit_pos[0]), type(fruit_pos[1])})")
+        
+        if fruit_pos[0] < 0.0 or fruit_pos[1] < 0.0:
             raise ValueError(f"Screen coordinates cannot be negative")
         else:
             self.position_on_screen.append(fruit_pos)
